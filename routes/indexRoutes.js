@@ -1,10 +1,8 @@
 const { Router } = require('express')
 const indexRouter = Router()
+const { getIndexPage} = require('../controllers/indexController')
 
 // Home Router
-indexRouter.get('/', (req, res) => {
-  res.render('index', { title: "Home Page" })
-})
-
+indexRouter.get('/', getIndexPage)
 
 module.exports = indexRouter
