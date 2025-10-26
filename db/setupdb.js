@@ -16,6 +16,22 @@ async function setupDB(){
     await client.connect()
     console.log('Connected to the database successfully.')
 
+    // Drop tables if they exist (for clean setup)
+    const dropTables = `
+      DROP TABLE IF EXISTS book_genres;
+      DROP TABLE IF EXISTS book_authors;
+      DROP TABLE IF EXISTS finished_readings;
+      DROP TABLE IF EXISTS reading;
+      DROP TABLE IF EXISTS to_read;
+      DROP TABLE IF EXISTS genres CASCADE;
+      DROP TABLE IF EXISTS authors CASCADE;
+      DROP TABLE IF EXISTS books CASCADE;
+    `
+    await client.query(dropTables)
+    console.log('Existing tables dropped (if any).')
+
+    // Create tables
+
     const createTableBooks = `
       CREATE TABLE IF NOT EXISTS books (
         id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
