@@ -22,7 +22,7 @@ async function setupDB(){
         title TEXT NOT NULL,
         summary TEXT,
         cover_image TEXT,
-        published_date DATE,
+        published_date DATE
       );
     `
       const createTableAuthors = `
@@ -60,19 +60,19 @@ async function setupDB(){
       const createTableFinishedReadings = `
       CREATE TABLE IF NOT EXISTS finished_readings (
         id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-        book_id INTEGER REFERENCES books(id) ON DELETE CASCADE,
+        book_id INTEGER REFERENCES books(id) ON DELETE CASCADE
       );
     `
       const createTableReading = `
       CREATE TABLE IF NOT EXISTS reading (
         id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-        book_id INTEGER REFERENCES books(id) ON DELETE CASCADE,
+        book_id INTEGER REFERENCES books(id) ON DELETE CASCADE
       );
     `
       const createTableToRead = `
       CREATE TABLE IF NOT EXISTS to_read (
         id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-        book_id INTEGER REFERENCES books(id) ON DELETE CASCADE,
+        book_id INTEGER REFERENCES books(id) ON DELETE CASCADE
       );
     `
     await client.query(createTableBooks)

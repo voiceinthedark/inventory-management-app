@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "dev:start": "nodemon app.js",
-    "start": "node app.js"
+    "start": "node app.js",
+    "db:setup": "node ./db/setupdb.js"
   },
   "keywords": ["inventory", "management", "express", "nodejs", "postgresql"],
   "author": "Firas Abbas",
