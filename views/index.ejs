@@ -8,8 +8,12 @@
     <h1>Inventory management application</h1>
     <nav class="navigation">
         <a href="/">Home</a> |
-        <a href="/items">Items</a> |
-        <a href="/add-item">Add Item</a>
+        <a href="/books">Books</a> |
+        <a href="/books/add">Add books</a>
+        <a href="/genres">Genres</a> |
+        <a href="/genres/add">Add genres</a> |
+        <a href="/authors">Authors</a> |
+        <a href="/authors/add">Add authors</a> |
         <a href="/about">About</a>
     </nav>
     <hr>
@@ -20,9 +24,9 @@
         <p>Welcome to the Inventory Management Application! This application helps you keep track of your inventory items efficiently. You can add new items, view existing items, and manage your inventory with ease.</p>
         <p>Use the navigation links above to explore the different features of the application.</p>
         <div class="lists">
-            <%- include('toread', { toReadList: toReadList }) %>
-            <%- include('reading', { readingList: readingList }) %>
-            <%- include('finished', { finishedList: finishedList }) %>
+            <%- include('partials/toread', { toReadList: toReadList }) %>
+            <%- include('partials/reading', { readingList: readingList }) %>
+            <%- include('partials/finished', { finishedList: finishedList }) %>
         </div>
     </section>
 </main>

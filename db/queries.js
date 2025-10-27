@@ -128,6 +128,7 @@ const getBooksCount = async () => {
 /* END OF DELETE QUERIES */
 
 module.exports = {
+  // Retrieve queries
   getFinishedReadingsBooks,
   getReadingBooks,
   getToReadBooks,
@@ -136,5 +137,8 @@ module.exports = {
   getAllAuthors,
   getAuthorsBooks,
   getBooksByGenre,
-  getBooksCount
+  getBooksCount,
+  // Create queries
+  // Update queries
+  // Delete queries
 }

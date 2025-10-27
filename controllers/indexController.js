@@ -8,15 +8,15 @@ const getIndexPage = async (req, res) => {
 }
 
 const getReadingSection = (req, res) => {
-  res.render('reading')
+  res.render('partials/reading')
 }
 
 const getFinishedSection = (req, res) => {
-  res.render('finished')
+  res.render('partials/finished')
 }
 
 const getToReadSection = (req, res) => {
-  res.render('toread')
+  res.render('partials/toread')
 }
 
 
