@@ -52,10 +52,12 @@ const getToReadBooks = async () => {
 
 const getAllBooks = async () => {
   const query = `
-    SELECT b.title, b.summary, b.cover_image, b.published_date, a.name AS author_name
+    SELECT b.title, b.summary, b.cover_image, b.published_date, a.name AS author_name, g.name AS genre_name
     FROM books b
     JOIN book_authors ba ON b.id = ba.book_id
-    JOIN authors a ON ba.author_id = a.id;
+    JOIN authors a ON ba.author_id = a.id 
+    JOIN book_genres bg ON b.id = bg.book_id
+    JOIN genres g ON bg.genre_id = g.id;
   `
   const { rows } = await db.query(query)
   return rows

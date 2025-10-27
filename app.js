@@ -4,6 +4,7 @@ require('dotenv').config();
 const path = require('node:path')
 
 const indexRouter = require('./routes/indexRoutes')
+const booksRouter = require('./routes/booksRoutes')
 
 const PORT = process.env.PORT || 5000
 
@@ -18,6 +19,7 @@ app.set('views', path.join(__dirname, 'views'))
 
 // use indexrouter
 app.use('/', indexRouter)
+app.use('/books', booksRouter)
 
 // Start listening on port 5000
 app.listen(PORT, (error) => {
