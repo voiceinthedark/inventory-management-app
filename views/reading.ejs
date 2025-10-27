@@ -1,9 +1,9 @@
 <section class="list">
-    <h2>My Reading List</h2>
+    <h2>Currently Reading</h2>
     <ul>
         <% readingList.forEach(function(book) { %>
             <li>
-                <strong><%= book.title %></strong> by <em><%= book.author %></em>
+                <strong><%= book.title %></strong> by <em><%= book.author_name %></em>
             </li>
         <% }); %>
     </ul>

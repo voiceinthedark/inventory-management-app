@@ -69,6 +69,19 @@ async function populateDB() {
       (4),
       (5);
     `
+
+    const insertReadingBooks = `
+      INSERT INTO reading (book_id) VALUES 
+      (1);
+    `
+
+    const insertToReadBooks = `
+      INSERT INTO to_read (book_id) VALUES 
+      (3);
+    `
+
+    await client.query(insertReadingBooks)
+    await client.query(insertToReadBooks)
     await client.query(insertFinishedBooks)
     await client.query(insertBookAuthors)
     await client.query(insertBookGenres)

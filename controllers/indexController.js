@@ -1,17 +1,22 @@
-const getIndexPage = (req, res) => {
-  res.render('index', { title: "Home Page", readingList: [], finishedList: [], toReadList: [] })
+const db = require('../db/queries')
+
+const getIndexPage = async (req, res) => {
+  const finishedList = await db.getFinishedReadingsBooks()
+  const toReadList = await db.getToReadBooks()
+  const readingList = await db.getReadingBooks()
+  res.render('index', { title: "Home Page", readingList, finishedList, toReadList })
 }
 
 const getReadingSection = (req, res) => {
-  res.render('reading', { readingList: [] })
+  res.render('reading')
 }
 
 const getFinishedSection = (req, res) => {
-  res.render('finished', { finishedList: [] })
+  res.render('finished')
 }
 
 const getToReadSection = (req, res) => {
-  res.render('toread', { toReadList: [] })
+  res.render('toread')
 }
 
 
