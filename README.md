@@ -1,12 +1,12 @@
 # Inventory management system
 
-This is a simple inventory management system built with express.js and PostgreSQL. It allows users to manage products and categories.
+This is a simple inventory management system for a personal book list built with express.js and PostgreSQL. It allows users to manage books and genres.
 
 ## Features
 
-- Add, update, delete, and view products
-- Add, update, delete, and view categories
-- Search products by name or category
+- Add, update, delete, and view books
+- Add, update, delete, and view genres
+- Search by book name or genre
 
 ## Technologies Used
 

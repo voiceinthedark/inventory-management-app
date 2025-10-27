@@ -1,6 +1,6 @@
 {
   "name": "inventory-management",
-  "version": "0.0.01",
+  "version": "0.1.41",
   "description": "A simple inventory management system using Express and PostgreSQL",
   "main": "app.js",
   "scripts": {
