@@ -1,0 +1,10 @@
+<section class="list">
+    <h2>Finished Books</h2>
+    <ul>
+        <% finishedList.forEach(function(book) { %>
+            <li>
+                <strong><%= book.title %></strong> by <em><%= book.author %></em>
+            </li>
+        <% }); %>
+    </ul>
+</section>

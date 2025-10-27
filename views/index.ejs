@@ -14,9 +14,17 @@
     </nav>
     <hr>
 </header>
-<main class="main-content">
-    <h2>Welcome to the Inventory Management Application</h2>
-    <p>Use the navigation links above to manage your inventory.</p>
+<main class="container">
+    <h2>A book reading list</h2>
+    <section class="content">
+        <p>Welcome to the Inventory Management Application! This application helps you keep track of your inventory items efficiently. You can add new items, view existing items, and manage your inventory with ease.</p>
+        <p>Use the navigation links above to explore the different features of the application.</p>
+        <div class="lists">
+            <%- include('toread', { toReadList: toReadList }) %>
+            <%- include('reading', { readingList: readingList }) %>
+            <%- include('finished', { finishedList: finishedList }) %>
+        </div>
+    </section>
 </main>
 
 </body>

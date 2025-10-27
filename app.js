@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 5000
 // Middleware
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+app.use(express.static(path.join(__dirname, 'public')))
 
 // Set EJS as templating engine
 app.set('view engine', 'ejs')
