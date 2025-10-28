@@ -10,11 +10,18 @@
     "db:populate": "node ./db/populatedb.js",
     "db:reset": "npm run db:setup && npm run db:populate"
   },
-  "keywords": ["inventory", "management", "express", "nodejs", "postgresql"],
+  "keywords": [
+    "inventory",
+    "management",
+    "express",
+    "nodejs",
+    "postgresql"
+  ],
   "author": "Firas Abbas",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "date-fns": "^4.1.0",
     "dotenv": "^17.2.3",
     "ejs": "^3.1.10",
     "express": "^5.1.0",

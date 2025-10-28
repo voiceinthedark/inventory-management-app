@@ -1,7 +1,7 @@
 <html>
 <head>
     <title><%= title %></title>
-    <link rel="stylesheet" type="text/css" href="/books.scss">
+    <link rel="stylesheet" type="text/css" href="/books/books.scss">
 </head>
 <body>
 <header class="header">
@@ -23,10 +23,12 @@
     <section class="content">
     <ul class="book-list">
         <% books.forEach(function(book) { %>
+        <a href="/books/<%= book.id %>/details">
             <li class="book-item">
               <strong><span class="book-title"><%= book.title %></span></strong> 
               by <span class="book-author"><%= book.author_name %></span> (Genre: <%= book.genre_name %>)
             </li>
+        </a>
         <% }); %>
     </ul>
       

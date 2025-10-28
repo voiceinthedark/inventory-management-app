@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title><%= book.title %></title>
+    <link rel="stylesheet" type="text/css" href="/books/details.scss">
+</head>
+<body>
+<header class="header">
+    <h1>Book management application</h1>
+    <nav class="navigation">
+        <a href="/">Home</a> |
+        <a href="/books">Books</a> |
+        <a href="/books/add">Add books</a> |
+        <a href="/genres">Genres</a> |
+        <a href="/genres/add">Add genres</a> |
+        <a href="/authors">Authors</a> |
+        <a href="/authors/add">Add authors</a> |
+        <a href="/about">About</a>
+    </nav>
+    <hr>
+</header>
+<main class="container">
+    <h2><%= book.title %></h2>
+    <section class="book-detail">
+        <p><strong>Author:</strong> <%= book.author_name %></p>
+        <p><strong>Genre:</strong> <%= book.genre_name %></p>
+        <p><strong>Summary:</strong> <%= book.summary %></p>
+        <p><strong>Published Year:</strong> <%= publishedDate %></p>
+    </section>
+</main>
+
+</body>
+</html>

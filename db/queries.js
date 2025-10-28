@@ -52,7 +52,7 @@ const getToReadBooks = async () => {
 
 const getAllBooks = async () => {
   const query = `
-    SELECT b.title, b.summary, b.cover_image, b.published_date, a.name AS author_name, g.name AS genre_name
+    SELECT b.id, b.title, b.summary, b.cover_image, b.published_date, a.name AS author_name, g.name AS genre_name
     FROM books b
     JOIN book_authors ba ON b.id = ba.book_id
     JOIN authors a ON ba.author_id = a.id 
@@ -61,6 +61,20 @@ const getAllBooks = async () => {
   `
   const { rows } = await db.query(query)
   return rows
+}
+
+const getBookById = async (bookId) => {
+  const query = `
+    SELECT b.title, b.summary, b.cover_image, b.published_date, a.name AS author_name, g.name AS genre_name
+    FROM books b
+    JOIN book_authors ba ON b.id = ba.book_id
+    JOIN authors a ON ba.author_id = a.id 
+    JOIN book_genres bg ON b.id = bg.book_id
+    JOIN genres g ON bg.genre_id = g.id
+    WHERE b.id = $1;
+  `
+  const { rows } = await db.query(query, [bookId])
+  return rows[0]
 }
 
 const getAllGenres = async () => {
@@ -140,6 +154,7 @@ module.exports = {
   getAuthorsBooks,
   getBooksByGenre,
   getBooksCount,
+  getBookById,
   // Create queries
   // Update queries
   // Delete queries
