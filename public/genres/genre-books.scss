@@ -1,0 +1,28 @@
+.container {
+  padding: 20px;
+  background-color: #f9f9f9;
+
+  .book-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    .book-item {
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      background-color: #fff;
+
+      .book-title {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+      }
+
+      .book-author {
+        font-size: 14px;
+        color: #666;
+      }
+    }
+  }
+}

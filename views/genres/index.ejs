@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>Genres List</title>
+    <link rel="stylesheet" type="text/css" href="/genres/index.scss">
+</head>
+<body>
+<header class="header">
+    <h1>Book management application</h1>
+    <nav class="navigation">
+        <a href="/">Home</a> |
+        <a href="/books">Books</a> |
+        <a href="/books/add">Add books</a> |
+        <a href="/genres">Genres</a> |
+        <a href="/genres/add">Add genres</a> |
+        <a href="/authors">Authors</a> |
+        <a href="/authors/add">Add authors</a> |
+        <a href="/about">About</a>
+    </nav>
+    <hr>
+</header>
+<main class="container">
+    <h1>Genres</h1>
+    <ul class="genres-list">
+        <% genres.forEach(function(genre) { %>
+        <a href="/genres/<%= genre.id %>">
+            <li><%= genre.name %></li>
+        </a>
+        <% }); %>
+    </ul>
+    </main>
+</body>
+</html>
