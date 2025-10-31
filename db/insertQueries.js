@@ -25,6 +25,19 @@ const insertNewBook = async (
   }
 };
 
+const insertNewAuthor = async (name, bio, birth_date, nationality) => {
+  const query = `INSERT INTO authors (name, bio, birthdate, nationality) VALUES ($1, $2, $3, $4) RETURNING *;`;
+  const values = [name, bio, birth_date, nationality];
+  try {
+    const result = await db.query(query, values);
+    return result.rows[0];
+  } catch (err) {
+    console.error("Error inserting new author:", err);
+    throw err;
+  }
+};
+
 module.exports = {
   insertNewBook,
+  insertNewAuthor,
 };

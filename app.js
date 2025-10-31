@@ -6,6 +6,7 @@ const path = require("node:path");
 const indexRouter = require("./routes/indexRoutes");
 const booksRouter = require("./routes/booksRoutes");
 const genresRouter = require("./routes/genresRoutes");
+const authorsRouter = require("./routes/authorRoutes");
 
 const PORT = process.env.PORT || 5000;
 
@@ -22,6 +23,7 @@ app.set("views", path.join(__dirname, "views"));
 app.use("/", indexRouter);
 app.use("/books", booksRouter);
 app.use("/genres", genresRouter);
+app.use("/authors", authorsRouter);
 
 // Start listening on port 5000
 app.listen(PORT, (error) => {
