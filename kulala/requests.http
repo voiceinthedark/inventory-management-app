@@ -11,3 +11,6 @@ GET http://localhost:5000/genres/
 
 ### Get Books by Genre
 GET http://localhost:5000/genres/1/
+
+### get authors
+GET http://localhost:5000/authors/

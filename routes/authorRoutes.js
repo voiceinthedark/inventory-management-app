@@ -2,12 +2,13 @@ const express = require("express");
 const { Router } = express;
 
 const db = require("../db/queries.js");
+const authorController = require("../controllers/authorController");
 
 const authorRouter = Router();
 
-authorRouter.get("/", async (req, res) => {
-  const authors = await db.getAllAuthors();
-  res.render("authors/index", { title: "Authors", authors });
-});
+authorRouter.get("/", authorController.getAuthorsPage);
+
+authorRouter.get("/add", authorController.getAddAuthorPage);
+authorRouter.post("/add", authorController.postAddAuthor);
 
 module.exports = authorRouter;
