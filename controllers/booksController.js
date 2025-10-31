@@ -10,7 +10,7 @@ const getBooksIndex = async (req, res) => {
 const getBookDetails = async (req, res) => {
   const bookId = req.params.id;
   const book = await db.getBookById(bookId);
-  const publishedDate = format(new Date(book.published_date), "dd MMMM yyyy");
+  const publishedDate = book.published_date;
   console.log(book);
   res.render("books/details", { title: "Book Details", book, publishedDate });
 };
