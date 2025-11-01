@@ -1,4 +1,5 @@
 const db = require("../db/queries");
+const insertQueries = require("../db/insertQueries");
 
 const getGenreIndex = async (req, res) => {
   try {
@@ -23,7 +24,24 @@ const getBooksByGenre = async (req, res) => {
   }
 };
 
+const getAddGenreForm = (req, res) => {
+  console.log("Rendering add genre form");
+  res.render("genres/add", { title: "Add new genre " });
+};
+
+const postAddGenre = async (req, res) => {
+  const { name, description } = req.body;
+  try {
+    const newGenre = await insertQueries.insertNewGenre(name, description);
+    res.redirect("/genres");
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
 module.exports = {
   getGenreIndex,
   getBooksByGenre,
+  postAddGenre,
+  getAddGenreForm,
 };

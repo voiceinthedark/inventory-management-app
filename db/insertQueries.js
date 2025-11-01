@@ -37,7 +37,20 @@ const insertNewAuthor = async (name, bio, birth_date, nationality) => {
   }
 };
 
+const insertNewGenre = async (name, description) => {
+  const query = `INSERT INTO genres (name, description) VALUES ($1, $2) RETURNING *;`;
+  const values = [name, description];
+  try {
+    const result = await db.query(query, values);
+    return result.rows[0];
+  } catch (err) {
+    console.error("Error inserting new genre:", err);
+    throw err;
+  }
+};
+
 module.exports = {
   insertNewBook,
   insertNewAuthor,
+  insertNewGenre,
 };

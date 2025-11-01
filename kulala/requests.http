@@ -14,3 +14,14 @@ GET http://localhost:5000/genres/1/
 
 ### get authors
 GET http://localhost:5000/authors/
+
+### get add genre form
+GET http://localhost:5000/genres/add
+
+### add a new genre
+POST http://localhost:5000/genres/add
+Content-Type: application/x-www-form-urlencoded
+
+name=NewGenre
+description=Description+of+the+new+genre
+
