@@ -8,5 +8,6 @@ booksRouter.get("/", booksController.getBooksIndex);
 booksRouter.get("/:id/details", booksController.getBookDetails);
 booksRouter.get("/add", booksController.getAddBookForm);
 booksRouter.post("/add", booksController.postAddNewBook);
+booksRouter.post("/:id/delete", booksController.postDeleteBook);
 
 module.exports = booksRouter;

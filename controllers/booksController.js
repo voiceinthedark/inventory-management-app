@@ -1,6 +1,6 @@
 const db = require("../db/queries");
 const insertQueries = require("../db/insertQueries");
-const { format } = require("date-fns");
+const deleteQueries = require("../db/deleteQueries");
 
 const getBooksIndex = async (req, res) => {
   const books = await db.getAllBooks();
@@ -40,9 +40,21 @@ const postAddNewBook = async (req, res) => {
   }
 };
 
+const postDeleteBook = async (req, res) => {
+  const bookId = req.params.id;
+  try {
+    await deleteQueries.deleteBookById(bookId);
+    res.redirect("/books");
+  } catch (error) {
+    console.error("Error deleting book:", error);
+    res.status(500).send("Internal Server Error");
+  }
+};
+
 module.exports = {
   getBooksIndex,
   getBookDetails,
   getAddBookForm,
   postAddNewBook,
+  postDeleteBook,
 };

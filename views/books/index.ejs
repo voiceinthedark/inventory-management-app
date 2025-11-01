@@ -23,12 +23,17 @@
     <section class="content">
     <ul class="book-list">
         <% books.forEach(function(book) { %>
+    <div>
         <a href="/books/<%= book.id %>/details">
             <li class="book-item">
               <strong><span class="book-title"><%= book.title %></span></strong> 
               by <span class="book-author"><%= book.author_name %></span> (Genre: <%= book.genre_name %>)
             </li>
         </a>
+        <form class="book-delete-form" action="/books/<%= book.id %>/delete" method="POST" onsubmit="return confirm('Are you sure you want to delete this book?');">
+            <button type="submit" class="delete-button">Delete</button>
+        </form>
+        </div>
         <% }); %>
     </ul>
       
