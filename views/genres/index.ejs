@@ -22,9 +22,14 @@
     <h1>Genres</h1>
     <ul class="genres-list">
         <% genres.forEach(function(genre) { %>
+        <div class="genre-item">
         <a href="/genres/<%= genre.id %>">
             <li><%= genre.name %></li>
         </a>
+        <form class="genre-delete-form" action="/genres/<%= genre.id %>/delete" method="POST" onsubmit="return confirm('Are you sure you want to delete this genre?');">
+            <button type="submit" class="delete-button">X</button>
+        </form>
+        </div>
         <% }); %>
     </ul>
     </main>

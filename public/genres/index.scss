@@ -7,13 +7,50 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   .genres-list {
     list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 0;
 
-    & a {
-      text-decoration: none;
-      color: #333;
+    .genre-item {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 15px;
+      margin-bottom: 10px;
+      transition: box-shadow 0.3s ease;
+      // width: 30%;
+      display: flex;
+      gap: 10px;
+      align-items: center;
 
       &:hover {
-        text-decoration: underline;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .genre-delete-form {
+        margin-left: auto;
+
+        button {
+          background-color: #ff4d4d;
+          color: white;
+          border: none;
+          padding: 6px 10px;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: #e60000;
+          }
+        }
+      }
+      & a {
+        text-decoration: none;
+        color: #333;
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
   }

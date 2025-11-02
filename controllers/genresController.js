@@ -1,5 +1,6 @@
 const db = require("../db/queries");
 const insertQueries = require("../db/insertQueries");
+const deleteQueries = require("../db/deleteQueries");
 
 const getGenreIndex = async (req, res) => {
   try {
@@ -39,9 +40,20 @@ const postAddGenre = async (req, res) => {
   }
 };
 
+const postDeleteGenre = async (req, res) => {
+  const { genreId } = req.params;
+  try {
+    await deleteQueries.deleteGenreById(genreId);
+    res.redirect("/genres");
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
 module.exports = {
   getGenreIndex,
   getBooksByGenre,
   postAddGenre,
   getAddGenreForm,
+  postDeleteGenre,
 };
