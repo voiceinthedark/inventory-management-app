@@ -1,7 +1,8 @@
 #! /usr/bin/env node
 
 const { Client } = require("pg");
-require("dotenv").config();
+const envFile = process.env.NODE_ENV === "production" ? ".prod.env" : ".env";
+require("dotenv").config({ path: envFile });
 
 const client = new Client({
   host: process.env.PGHOST,
@@ -15,6 +16,8 @@ async function setupDB() {
   try {
     await client.connect();
     console.log("Connected to the database successfully.");
+    console.log(`Connecting to database: ${process.env.PGDATABASE}`);
+    console.log(`Host: ${process.env.PGHOST}`);
 
     // Drop tables if they exist (for clean setup)
     const dropTables = `

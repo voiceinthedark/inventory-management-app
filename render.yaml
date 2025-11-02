@@ -1,0 +1,11 @@
+services:
+  - type: web
+    runtime: node
+    name: mini-book-inventory
+    repo: https://github.com/voiceinthedark/inventory-management-app
+    region: frankfurt
+    plan: free
+    branch: main
+    buildCommand: npm install
+    startCommand: npm run start
+    autoDeployTrigger: "commit"

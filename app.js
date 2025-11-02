@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
-require("dotenv").config();
+const envFile = process.env.NODE_ENV === "production" ? ".prod.env" : ".env";
+require("dotenv").config({ path: envFile });
 const path = require("node:path");
 
 const indexRouter = require("./routes/indexRoutes");

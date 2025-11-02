@@ -1,7 +1,8 @@
 #! /usr/bin/env node
 
 const { Client } = require("pg");
-require("dotenv").config();
+const envFile = process.env.NODE_ENV === "production" ? ".prod.env" : ".env";
+require("dotenv").config({ path: envFile });
 
 const client = new Client({
   host: process.env.PGHOST,
