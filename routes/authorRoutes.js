@@ -10,5 +10,6 @@ authorRouter.get("/", authorController.getAuthorsPage);
 
 authorRouter.get("/add", authorController.getAddAuthorPage);
 authorRouter.post("/add", authorController.postAddAuthor);
+authorRouter.post("/:id/delete", authorController.postDeleteAuthor);
 
 module.exports = authorRouter;

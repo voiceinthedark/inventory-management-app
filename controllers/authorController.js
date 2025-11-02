@@ -1,5 +1,6 @@
 const db = require("../db/queries");
 const insertQueries = require("../db/insertQueries");
+const deleteQueries = require("../db/deleteQueries");
 
 const getAuthorsPage = async (req, res) => {
   const authors = await db.getAllAuthors();
@@ -21,8 +22,20 @@ const postAddAuthor = async (req, res) => {
   }
 };
 
+const postDeleteAuthor = async (req, res) => {
+  const authorId = req.params.id;
+  try {
+    await deleteQueries.deleteAuthorById(authorId);
+    res.redirect("/authors");
+  } catch (error) {
+    console.error("Error deleting author:", error);
+    res.status(500).send("Internal Server Error");
+  }
+};
+
 module.exports = {
   getAuthorsPage,
   getAddAuthorPage,
   postAddAuthor,
+  postDeleteAuthor,
 };
